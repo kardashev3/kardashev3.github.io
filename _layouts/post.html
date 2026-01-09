@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Kardashev's Records</title>
+    <style>
+        body { font-family: "Georgia", serif; line-height: 1.7; color: #333; max-width: 700px; margin: 60px auto; padding: 0 25px; }
+        header { margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        header a { text-decoration: none; color: #999; font-size: 14px; }
+        h1 { font-size: 32px; font-weight: normal; margin-top: 20px; }
+        .post-meta { color: #999; font-size: 14px; margin-bottom: 30px; }
+        .post-content { font-size: 18px; }
+        .social-share { margin-top: 50px; border-top: 1px solid #f0f0f0; padding-top: 20px; }
+        .btn-x { background-color: #000; color: #fff; text-decoration: none; padding: 5px 15px; border-radius: 20px; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <header><a href="/">← Back to Home</a></header>
+    <main>
+        <h1>{{ page.title }}</h1>
+        <div class="post-meta">{{ page.date | date: "%Y.%m.%d" }}</div>
+        <div class="post-content">{{ content }}</div>
+    </main>
+    <div class="social-share">
+        <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" target="_blank" class="btn-x">𝕏 Post</a>
+    </div>
+</body>
+</html>
