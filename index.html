@@ -1,95 +1,40 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kardashev's Records</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <style>
-        /* 샘 알트먼 스타일 가이드 */
-        body {
-            font-family: "Georgia", serif;
-            line-height: 1.7;
-            color: #333;
-            max-width: 700px;
-            margin: 60px auto;
-            padding: 0 25px;
-            background-color: #fff;
+        body { 
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+            line-height: 1.7; 
+            color: #333; 
+            max-width: 700px; 
+            margin: 60px auto; 
+            padding: 0 25px; 
         }
         header { margin-bottom: 80px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        header h1 { font-size: 32px; font-weight: normal; margin: 0; }
-        
-        /* 포스트 본문 스타일 */
-        article { margin-bottom: 100px; }
-        article h2 { font-size: 26px; font-weight: normal; color: #0044cc; margin-bottom: 10px; }
-        article h2 a { text-decoration: none; color: inherit; }
-        .post-meta { color: #999; font-size: 14px; margin-bottom: 20px; }
-        .post-content { font-size: 18px; margin-bottom: 30px; }
-
-        /* 소셜 공유 버튼 섹션 */
-        .social-share { display: flex; gap: 15px; border-top: 1px solid #f0f0f0; padding-top: 15px; }
-        .btn-x { 
-            background-color: #000; color: #fff; text-decoration: none;
-            padding: 5px 15px; border-radius: 20px; font-size: 13px; display: flex; align-items: center;
-        }
-        .btn-x:hover { opacity: 0.8; }
-
-        /* 페이지네이션 스타일 */
-        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 80px; padding-bottom: 50px; }
-        .pagination a, .pagination span {
-            padding: 8px 15px; border: 1px solid #ddd; text-decoration: none; color: #333; font-size: 14px;
-        }
-        .pagination .active { font-weight: bold; border: 2px solid #333; }
-        .pagination a:hover { background-color: #f9f9f9; }
+        h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; }
+        .post-item { margin-bottom: 40px; }
+        .post-item h2 { font-size: 24px; font-weight: 600; margin-bottom: 5px; letter-spacing: -0.02em; }
+        .post-item h2 a { text-decoration: none; color: #0044cc; }
+        .post-item h2 a:hover { text-decoration: underline; }
+        .post-date { color: #999; font-size: 14px; }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Kardashev's Records</h1>
-    </header>
-
+    <header><h1>Kardashev's Records</h1></header>
     <main>
-        <article>
-            <h2><a href="#">첫 번째 기록: 블로그 시작과 2026년 목표</a></h2>
-            <div class="post-meta">Posted 3 years ago · 2026.01.09</div>
-            <div class="post-content">
-                올해 가장 중요한 목표는 가족과 건강입니다. 벨루가(Beluga)로의 재입사를 앞두고, 
-                스타트업의 바쁜 일상 속에서도 개인적인 성장을 기록하기 위해 이 미니멀한 공간을 만들었습니다. 
-                앞으로 파이썬 학습 내용과 투자 인사이트를 이곳에 담을 예정입니다.
-            </div>
-            <div class="social-share">
-                <a href="https://twitter.com/intent/tweet?text=첫번째기록&url=https://kardashev3.github.io" target="_blank" class="btn-x">𝕏 Post</a>
-            </div>
-        </article>
-
-        <article>
-            <h2><a href="#">파이썬 학습: 제 1원칙으로 시작하기</a></h2>
-            <div class="post-meta">Posted 1 day ago · 2026.01.08</div>
-            <div class="post-content">
-                파이썬 문법을 익히는 과정에서 일론 머스크의 제 1원칙 사고법을 적용해보고 있습니다. 
-                복잡한 라이브러리 이전에 기초 문법이 어떻게 작동하는지 본질을 파악하는 데 집중하고 있습니다.
-            </div>
-            <div class="social-share">
-                <a href="https://twitter.com/intent/tweet?text=파이썬학습&url=https://kardashev3.github.io" target="_blank" class="btn-x">𝕏 Post</a>
-            </div>
-        </article>
-
-        </main>
-
-    <nav class="pagination">
-        <span class="active">1</span>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <span>...</span>
-        <a href="#">Next</a>
-        <a href="#">Last</a>
-    </nav>
-
-    <footer style="text-align: center; color: #ccc; font-size: 12px; margin-bottom: 40px;">
-        &copy; 2026 kardashev3. All rights reserved.
-    </footer>
-
+        {% for post in site.posts %}
+        <div class="post-item">
+            <div class="post-date">{{ post.date | date: "%Y.%m.%d" }}</div>
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <p>{{ post.content | strip_html | truncatewords: 20 }}</p>
+        </div>
+        {% endfor %}
+    </main>
 </body>
 </html>
