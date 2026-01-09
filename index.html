@@ -1,40 +1,84 @@
----
-layout: default
----
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kardashev's Records</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <style>
         body { 
-            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-            line-height: 1.7; 
+            font-family: "Pretendard Variable", sans-serif;
+            line-height: 1.8; 
             color: #333; 
             max-width: 700px; 
-            margin: 60px auto; 
-            padding: 0 25px; 
+            margin: 0 auto; 
+            padding: 60px 25px; 
+            word-break: keep-all;
         }
-        header { margin-bottom: 80px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; }
-        .post-item { margin-bottom: 40px; }
-        .post-item h2 { font-size: 24px; font-weight: 600; margin-bottom: 5px; letter-spacing: -0.02em; }
-        .post-item h2 a { text-decoration: none; color: #0044cc; }
-        .post-item h2 a:hover { text-decoration: underline; }
-        .post-date { color: #999; font-size: 14px; }
+        header { margin-bottom: 60px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        header h1 { font-size: 28px; font-weight: 700; margin: 0; letter-spacing: -0.03em; }
+        
+        /* 글 전체가 펼쳐지는 스타일 */
+        article { margin-bottom: 120px; }
+        .post-date { color: #999; font-size: 14px; margin-bottom: 8px; }
+        article h2 { font-size: 24px; font-weight: 700; margin-top: 0; margin-bottom: 20px; letter-spacing: -0.02em; }
+        article h2 a { text-decoration: none; color: #0044cc; }
+        .post-content { font-size: 17px; font-weight: 400; margin-bottom: 30px; }
+
+        /* 공유 버튼 섹션 */
+        .post-footer { display: flex; align-items: center; gap: 15px; padding-top: 15px; border-top: 1px solid #f4f4f4; }
+        .btn-x { 
+            background-color: #000; color: #fff; text-decoration: none; 
+            padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .btn-x:hover { opacity: 0.8; }
+
+        /* 페이지네이션 */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 50px; }
+        .pagination a, .pagination span { 
+            padding: 8px 14px; border: 1px solid #eee; text-decoration: none; color: #666; font-size: 14px; border-radius: 4px;
+        }
+        .pagination .active { font-weight: 700; border: 1px solid #333; color: #000; }
     </style>
 </head>
 <body>
-    <header><h1>Kardashev's Records</h1></header>
+
+    <header>
+        <h1>Kardashev's Records</h1>
+    </header>
+
     <main>
         {% for post in site.posts %}
-        <div class="post-item">
+        <article>
             <div class="post-date">{{ post.date | date: "%Y.%m.%d" }}</div>
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <p>{{ post.content | strip_html | truncatewords: 20 }}</p>
-        </div>
+            <div class="post-content">
+                {{ post.content }} </div>
+            <div class="post-footer">
+                <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ site.url }}{{ post.url }}" target="_blank" class="btn-x">
+                    𝕏 Post
+                </a>
+                <span style="color: #ccc; font-size: 13px;">Posted on {{ post.date | date: "%B %d, %Y" }}</span>
+            </div>
+        </article>
         {% endfor %}
     </main>
+
+    <nav class="pagination">
+        <span class="active">1</span>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <span>...</span>
+        <a href="#">Next</a>
+        <a href="#">Last</a>
+    </nav>
+
+    <footer style="margin-top: 100px; text-align: center; color: #bbb; font-size: 13px;">
+        &copy; 2026 kardashev3.
+    </footer>
+
 </body>
 </html>
