@@ -30,6 +30,34 @@
         }
         .social-share { margin-top: 50px; border-top: 1px solid #f0f0f0; padding-top: 20px; }
         .btn-x { background-color: #000; color: #fff; text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+        /* 주석(Footnotes) 전체 영역 스타일 */
+        .footnotes {
+            font-size: 14px;      /* 본문 16px보다 작게 설정하여 보조 정보임을 명시 */
+            color: #888;          /* 연한 회색으로 변경하여 시각적 무게감 감소 */
+            line-height: 1.5;     /* 작은 폰트에 맞춰 행간도 미세하게 조정 */
+            margin-top: 60px;     /* 본문과의 충분한 간격 확보 */
+            padding-top: 20px;
+            border-top: 1px solid #eee; /* 구분선 추가로 본문과 확실히 분리 */
+        }
+        
+        /* 주석 목록(숫자) 스타일 */
+        .footnotes ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        /* 주석 본문 내 링크 및 되돌아가기 화살표(↩) */
+        .footnotes a {
+            color: #666;
+            text-decoration: underline;
+            text-decoration-color: #ddd;
+        }
+        
+        .footnotes a.reversefootnote {
+            text-decoration: none;
+            margin-left: 5px;
+            color: #bbb;
+        }
     </style>
 </head>
 <body>
