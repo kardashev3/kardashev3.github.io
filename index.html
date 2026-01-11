@@ -10,21 +10,29 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <style>
         body { 
-            font-family: "Pretendard Variable", sans-serif;
-            line-height: 1.8; 
-            color: #333; 
-            max-width: 700px; 
-            margin: 0 auto; 
-            padding: 60px 25px; 
-            word-break: keep-all;
-        }
+                font-family: "Pretendard Variable", sans-serif;
+                line-height: 1.6; /* 행간을 1.6으로 축소 */
+                color: #1a1a1a; /* 대비 향상 */
+                max-width: 650px; /* 폰트 크기에 맞춰 가로폭 축소 */
+                margin: 0 auto; 
+                padding: 60px 25px; 
+                word-break: keep-all;
+                -webkit-font-smoothing: antialiased; /* 글자를 더 매끄럽게 표시 */
+            }
         header { margin-bottom: 60px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
         header h1 { font-size: 28px; font-weight: 700; margin: 0; letter-spacing: -0.03em; }
         article { margin-bottom: 120px; }
         .post-date { color: #999; font-size: 14px; margin-bottom: 8px; }
         article h2 { font-size: 24px; font-weight: 700; margin-top: 0; margin-bottom: 20px; letter-spacing: -0.02em; }
         article h2 a { text-decoration: none; color: #0044cc; }
-        .post-content { font-size: 17px; font-weight: 400; margin-bottom: 30px; text-align: justify; text-justify: inter-word; }
+        .post-content { 
+                font-size: 16px; /* 16px로 변경 */
+                font-weight: 400; 
+                margin-bottom: 30px; 
+                text-align: justify; /* 좌우 꽉 채우기 유지 */
+                text-justify: inter-character; 
+                letter-spacing: -0.01em; /* 자간을 미세하게 좁혀 밀도감 상승 */
+            }
         .post-content img { max-width: 100%; height: auto; }
         .post-footer { display: flex; align-items: center; gap: 15px; padding-top: 15px; border-top: 1px solid #f4f4f4; }
         .btn-x { 
